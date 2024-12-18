@@ -8,6 +8,14 @@
 - **依赖软件**：
   - **PowerCLI**：必须安装。`BulkVMTool` 可以自动检测是否安装了 PowerCLI；如果没有安装，程序会尝试自动完成安装。不过，推荐用户手动安装最新版本的 PowerCLI 以确保最佳兼容性和功能。
   
+#### 脱机安装 （速度非常快）
+
+- 如果需要[脱机](https://docs.vmware.com/en/VMware-PowerCLI/latest/powercli/GUID-3034A439-E9D7-4743-ABC0-EE38610E15F8.html "官方文档")安装 PowerCLI，请从 [PowerCLI](https://code.vmware.com/web/tool/vmware-powercli) 主页下载 [PowerCLI ZIP](https://developer.broadcom.com/tools/vmware-powercli/latest/ "新的下载网站") 文件，然后将 ZIP 文件传输到本地计算机。
+- 使用以下命令检查 PowerShell 模块路径：`$env:PSModulePath`。
+- 将 ZIP 文件的内容提取到其中一个列出的文件夹中。
+- 使用命令 `cd <path_to_powershell_modules_folder>` 和 `Get-ChildItem * -Recurse | Unblock-File` 取消阻止这些文件。
+- 可以使用 `Get-Module -Name VMware.PowerCLI -ListAvailable` 命令验证 PowerCLI 模块是否可用。
+
 #### 功能特点
 - **生成模板**：`BulkVMTool` 提供了一个功能，可以在程序所在的目录下生成一个配置模板文件。此模板文件包含了所有需要用户填写或调整的虚拟机配置信息。
 - **导入模板**：用户可以将之前生成的或手工编辑的模板文件导入到 `BulkVMTool` 中。导入后，用户需要保存设置以使更改生效。
